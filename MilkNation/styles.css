@@ -4,12 +4,17 @@
     padding: 0;
     box-sizing: border-box;
   }
+
   
   /* Body and General Layout */
   body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    background-color: #f0fff4;
+
+    
   }
+
   
   /* Header and Navigation */
   header {
@@ -39,15 +44,40 @@
   }
 
   #home {
-    background-image: url('banner.jpg'); 
+    background-image: url('banner.jpg');
     background-size: cover;
     background-position: center;
-    height: 450px; 
-    color: blue;
+    height: 600px;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    font-size: 2.5rem;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+#home-content {
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+}
   
   .banner-content {
     text-align: center;
@@ -68,13 +98,29 @@
     text-align: center;
   }
   
-  section#about {
-    background-color: #e2e2e2;
+  #about-us {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    text-align: center;
   }
   
-  section#services {
-    background-color: #f4f4f4;
+  #about-us .container {
+    max-width: 700px;
+    margin: auto;
   }
+  
+  #about-us h2 {
+    font-size: 2em;
+    color: #333;
+  }
+  
+  #about-us p {
+    font-size: 1.1em;
+    color: #555;
+    margin: 15px 0;
+    background-color: #f0fff4;
+  }
+  
   
   section#contact {
     background-color: #e2e2e2;
@@ -86,6 +132,31 @@
     color: #333;
   }
   
+  .contact-info ul,
+  .skills ul,
+  .experience ul,
+  .education ul {
+      list-style-type: none;
+      padding-left: 0;
+  }
+
+  .contact-info li, 
+  .skills li,
+  .experience li,
+  .education li {
+      font-size: 16px;
+      margin-bottom: 8px;
+  }
+
+  .contact-info a {
+      color: #EA738D;
+      text-decoration: none;
+  }
+
+  .contact-info a:hover {
+      text-decoration: underline;
+  }
+
   section p {
     color: #555;
   }
@@ -110,4 +181,70 @@
     }
   }
 
+  .carousel {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    
+  }
+
+  .carry{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    background-color: #f0fff4;
+    font-family: Arial, sans-serif;
+
+  }
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .carousel-images img {
+    width: 100%;
+    border: none;
+  }
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .carousel-button.left {
+    left: 10px;
+  }
+  .carousel-button.right {
+    right: 10px;
+  }
+
   
+  .welcome-section {
+    background-color: #f0fff4;
+    text-align: center;
+    padding: 50px 20px;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .welcome-section h1 {
+    font-size: 3em;
+    color: #2d6a4f;
+  }
+  
+  .welcome-section p {
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 10px;
+  }
