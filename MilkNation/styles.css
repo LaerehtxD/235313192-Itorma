@@ -16,32 +16,182 @@
   }
 
   
-  /* Header and Navigation */
-  header {
-    background-color: #333;
-  }
-  
-  nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 1rem;
-  }
-  
-  nav ul li {
-    margin: 0 1rem;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-  }
-  
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  nav ul li a:hover {
-    text-decoration: underline;
+/* Header and Navbar Styling */
+header {
+  background-color: #333;
+  padding: 20px 0; /* Thicker navbar */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* Ensures the logo and nav links are spaced out */
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo img {
+  width: 75px; /* Adjust based on your logo size */
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style-type: none;
+  margin-left: auto; /* This pushes the nav links to the right */
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 12px 20px; /* Thicker padding for a thicker navbar */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background-color: #4CAF50; /* Green hover effect */
+  transform: translateY(-3px); /* Slight lift effect */
+}
+
+.nav-links a:active {
+  background-color: #45a049;
+  transform: translateY(1px); /* Pressed effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #333;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
   }
+
+  .nav-links.show {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    padding: 12px;
+    font-size: 18px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+  }
+}
+
+/* Hamburger Icon */
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #333;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-links.show {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    padding: 12px;
+    font-size: 18px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+  }
+}
+
+/* Hamburger Icon */
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+}
 
   #home {
     background-image: url('banner.jpg');
@@ -99,7 +249,7 @@
   }
   
   #about-us {
-    background-color: #f9f9f9;
+    background-color: #f0fff4;
     padding: 40px 20px;
     text-align: center;
   }
@@ -181,70 +331,136 @@
     }
   }
 
+  /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main Container */
+.carry {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  background-color: #f0fff4; /* New background color */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Carousel Styling */
+.carousel {
+  position: relative;
+  width: 90%;
+  max-width: 700px; /* Increased size for better visibility */
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Softer, more modern shadow */
+  border: 2px solid rgba(0, 0, 0, 0.1); /* Subtle border for elegance */
+}
+
+/* Image Slider Styling */
+.carousel-images {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transition */
+}
+
+.carousel-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Rounded image corners */
+}
+
+/* Button Styling */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1); /* Slight grow effect on hover */
+}
+
+.carousel-button.left {
+  left: 20px;
+}
+
+.carousel-button.right {
+  right: 20px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
   .carousel {
-    position: relative;
-    width: 80%;
-    max-width: 600px;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-    
-  }
-
-  .carry{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 400px;
-    background-color: #f0fff4;
-    font-family: Arial, sans-serif;
-
-  }
-  .carousel-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  .carousel-images img {
     width: 100%;
-    border: none;
+    max-width: 100%;
   }
-  .carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 1;
-  }
-  .carousel-button.left {
-    left: 10px;
-  }
-  .carousel-button.right {
-    right: 10px;
+}
+
+ /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Welcome Section Styling */
+.welcome-section {
+  background: linear-gradient(135deg, #f0fff4, #d4f1d4); /* Soft gradient background */
+  text-align: center;
+  padding: 60px 20px; /* Increased padding for more spacious feel */
+  color: #333;
+  border-radius: 20px; /* More rounded corners for a smoother look */
+  box-shadow: none; /* Removed shadow */
+  max-width: 900px;
+  margin: 40px auto; /* Centered container with some margin */
+}
+
+/* Heading Style */
+.welcome-section h1 {
+  font-size: 3.5em; /* Larger font size for impact */
+  color: #2d6a4f;
+  font-weight: 700; /* Bold for emphasis */
+  letter-spacing: 1px; /* Slight letter spacing for sleekness */
+  transition: transform 0.3s ease; /* Smooth scale effect on hover */
+}
+
+.welcome-section h1:hover {
+  transform: scale(1.05); /* Slight grow effect on hover */
+}
+
+/* Paragraph Styling */
+.welcome-section p {
+  font-size: 1.25em;
+  color: #555;
+  margin-top: 20px;
+  line-height: 1.6; /* Improved line spacing for readability */
+  max-width: 800px; /* Restrict max-width to keep text line length manageable */
+  margin: 20px auto; /* Centered paragraph with space around */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.welcome-section p:hover {
+  color: #2d6a4f; /* Change text color on hover for interaction */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .welcome-section h1 {
+    font-size: 2.5em; /* Adjust heading font size on smaller screens */
   }
 
-  
-  .welcome-section {
-    background-color: #f0fff4;
-    text-align: center;
-    padding: 50px 20px;
-    color: #333;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .welcome-section h1 {
-    font-size: 3em;
-    color: #2d6a4f;
-  }
-  
   .welcome-section p {
-    font-size: 1.2em;
-    color: #555;
-    margin-top: 10px;
+    font-size: 1.1em; /* Adjust paragraph font size on smaller screens */
   }
+}
