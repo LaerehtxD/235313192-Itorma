@@ -16,6 +16,7 @@
     echo "<p>The difference of ". $a ." and ". $b ." is ". ($a - $b) .".</p>";
     echo "<p>The product of ". $a ." and ". $b ." is ". ($a * $b) .".</p>";
     echo "<p>The quotient of ". $a ." and ". $b ." is ". ($a / $b) .".</p>";
+    echo"<br>";
 ?>
 
 <?php
@@ -49,11 +50,13 @@
     }
     echo"<br>";
     echo"<br>";
+    echo"<br>";
 ?>
 
 <?php
 //exercise 3
     echo "Exercise 3: Loops <br>";
+    echo"<br>";
 
     echo "FizzBuzz:<br>";
     for ($i = 1; $i <= 100; $i++) {
@@ -74,12 +77,26 @@
             }
     }
     }
-    echo"<br>";
-    echo"<br>";
 
-    echo "Fibonacci:<br>";
   
 
+    echo"<br>";
+    echo"<br>";
+
+    echo"Fibonacci:<br>";
+    $n = 10;  
+    $fib = [0, 1]; 
+
+    for ($i = 2; $i < $n; $i++) {
+        $fib[$i] = $fib[$i - 1] + $fib[$i - 2];
+    }
+
+    foreach ($fib as $num) {
+        if ($num % 2 == 0) {
+            echo $num . " ";
+        }
+    }
+    echo"<br>";
     echo"<br>";
     echo"<br>";
 ?>
@@ -87,10 +104,35 @@
 <?php
 //exercise 4
     echo "Exercise 4: Functions <br>";
+    echo"<br>";
+    echo"Greeting function:<br>";
+    function greet($name) {
+        return "Good day, " . $name . "! Nice meeting you!";
+    }
+    echo greet("Daryl");
+    echo"<br>";
+    echo"<br>";
+    echo"Square function:<br>";
 
+    function square($num) {
+        return $num * $num;
+    }
+    
+    echo"Square of number 10: ";
+    echo square(10);
 
+    echo"<br>";
+    echo"<br>";
 
 ?>
+    <h5>Exercise 5: Form Handling <br></h5>
+    <h5>HTML Form:<br></h5>
+    <h2>Enter Some Text:</h2>
+        <form action="data.php" method="post">
+            <input type="text" name="user_text" required>
+            <button type="submit">Submit</button>
+        </form>
+    
 
     
 </body>
