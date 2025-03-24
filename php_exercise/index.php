@@ -105,21 +105,30 @@
 //exercise 4
     echo "Exercise 4: Functions <br>";
     echo"<br>";
-    echo"Greeting function:<br>";
+
     function greet($name) {
-        return "Good day, " . $name . "! Nice meeting you!";
+        return "Hello, " . $name . "!";
     }
-    echo greet("Daryl");
-    echo"<br>";
-    echo"<br>";
-    echo"Square function:<br>";
+
+
 
     function square($num) {
         return $num * $num;
     }
     
-    echo"Square of number 10: ";
-    echo square(10);
+// Exercise 5: PHP script to display text
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $number = $_POST["number"];
+    echo"Greeting function:<br>";
+    if (!empty($name)) {
+        echo "<p>" . greet($name) . "</p>";
+    }
+    echo"Square function:<br>";
+    if (!empty($number)) {
+        echo "<p>The square of $number is: " . square($number) . "</p>";
+    }
+}
 
     echo"<br>";
     echo"<br>";
@@ -127,12 +136,12 @@
 ?>
     <h5>Exercise 5: Form Handling <br></h5>
     <h5>HTML Form:<br></h5>
-    <h2>Enter Some Text:</h2>
-        <form action="data.php" method="post">
-            <input type="text" name="user_text" required>
-            <button type="submit">Submit</button>
-        </form>
-    
+
+<form method="post">
+    <h3>Name:</h3> <input type="text" name="name">
+    <h3>Number:</h3> <input type="number" name="number">
+    <input type="submit" value="Submit">
+</form>
 
     
 </body>
