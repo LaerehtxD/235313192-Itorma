@@ -1,0 +1,112 @@
+mysql -u root -p
+
+create database school_db;
+
+use school_db;
+
+
+CREATE TABLE students (
+id INT AUTO_INCREMENT PRIMARY KEY,
+first_name VARCHAR(50),
+last_name VARCHAR(50),
+age INT,
+grade VARCHAR(5)
+);
+
+
+INSERT INTO students (first_name, last_name, age, grade)
+VALUES
+('Alice', 'Johnson', 14, '8'),
+('Bob', 'Smith', 15, '9'),
+('Charlie', 'Brown', 13, '7'),
+('Diana', 'Prince', 16, '10'),
+('Evan', 'Taylor', 14, '8'),
+('Faith', 'Garcia', 15, '9'),
+('George', 'Mendoza', 13, '7'),
+('Hannah', 'Cruz', 16, '10'),
+('Isaac', 'Lopez', 14, '8'),
+('Jasmine', 'Reyes', 15, '9'),
+('Kevin', 'Diaz', 13, '7'),
+('Liam', 'Santos', 16, '10'),
+('Mia', 'Torres', 14, '8'),
+('Nathan', 'Flores', 15, '9'),
+('Olivia', 'Gutierrez', 13, '7'),
+('Patrick', 'Morales', 16, '10'),
+('Quinn', 'Ramos', 14, '8'),
+('Riley', 'Castro', 15, '9'),
+('Sophie', 'Jimenez', 13, '7'),
+('Tyler', 'Vargas', 16, '10'),
+('Ulysses', 'Pineda', 14, '8'),
+('Vanessa', 'Delgado', 15, '9'),
+('Wendy', 'Ortiz', 13, '7'),
+('Xander', 'Fernandez', 16, '10'),
+('Yasmine', 'Navarro', 14, '8'),
+('Zachary', 'Salazar', 15, '9'),
+('Aiden', 'Dominguez', 13, '7'),
+('Bella', 'Escobar', 16, '10'),
+('Caleb', 'Valdez', 14, '8'),
+('Danica', 'Mendez', 15, '9'),
+('Ethan', 'Rojas', 13, '7'),
+('Fiona', 'Herrera', 16, '10'),
+('Gavin', 'Aguilar', 14, '8'),
+('Hailey', 'Villanueva', 15, '9'),
+('Ian', 'Figueroa', 13, '7'),
+('Jenna', 'Cortez', 16, '10'),
+('Kyle', 'Medina', 14, '8'),
+('Luna', 'Silva', 15, '9'),
+('Mason', 'Martinez', 13, '7'),
+('Noah', 'Rosales', 16, '10');
+
+
+select * from students;
+select * from students where grade = "8";
+select * from students where first_name like "A%";
+
+
+update students
+set grade = "9"
+where first_name = "Alice";
+
+select * from students;
+
+UPDATE students
+SET age = age + 1;
+
+select * from students;
+
+
+delete from students where first_name = "Bob";
+delete from students where grade = "7";
+
+select * from students;
+
+
+CREATE TABLE courses (
+course_id INT AUTO_INCREMENT PRIMARY KEY,
+course_name VARCHAR(50)
+);
+
+CREATE TABLE enrollments (
+enrollment_id int AUTO_INCREMENT PRIMARY KEY,
+student_id int,
+course_id int,
+Foreign Key (student_id) references students(id),
+Foreign Key (course_id) references courses(course_id)
+);
+
+INSERT INTO courses (course_name) VALUES('Mathematics'),('Science'),('English');
+select * from courses;
+
+INSERT INTO enrollments (student_id, course_id) VALUES(1, 1),(4, 3),(5, 2);
+select * from enrollments;
+
+SELECT s.first_name, s.last_name, c.course_name FROM students s JOIN enrollments e ON s.id = e.student_id JOIN courses c ON e.course_id = c.course_id;
+
+SELECT COUNT(*)
+FROM students;
+
+SELECT AVG(age)
+FROM students;
+
+SELECT MIN(age)
+FROM students;
